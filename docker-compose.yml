@@ -1,9 +1,9 @@
 services:
   stratege-ai:
-    build: .
+    build: /host-home/Stratege-IA
     volumes:
-      - ./saved_model:/workspace/saved_model
-      - ./h5:/workspace/h5
+      - /host-home/Stratege-IA/saved_model:/saved_model
+      - /host-home/Stratege-IA/h5:/h5
     environment:
       START_EPISODE: 9100
       NB_EPISODES: 1000000
