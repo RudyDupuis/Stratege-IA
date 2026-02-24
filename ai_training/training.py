@@ -13,11 +13,7 @@ from ai_training.agent import Agent
 
 
 def train_agents(
-    num_episodes,
-    start_episode=0,
-    agent1_model_path=None,
-    agent2_model_path=None,
-    displayBoardInTerminal=False,
+    num_episodes, start_episode=0, agent1_model_path=None, agent2_model_path=None
 ):
     agent1 = Agent(
         name="Agent1", player_role=PlayerRole.PLAYER1, model_path=agent1_model_path
@@ -33,8 +29,6 @@ def train_agents(
         current_episode = episode + start_episode
         game_state = GameState(1, initial_board())
         done = False
-
-        print(f"Épisode {current_episode}")
 
         while not done:
             current_player = game_state.determine_player_based_on_turn()
@@ -60,8 +54,8 @@ def train_agents(
                 state, choosen_action, reward, next_state, next_possible_actions
             )
 
-            if displayBoardInTerminal:
-                display_board(game_state)
+            print(f"Épisode {current_episode}")
+            display_board(game_state)
 
         if episode % 100 == 0:
             agent1.model.save(f"h5/{current_episode}_agent1.h5")

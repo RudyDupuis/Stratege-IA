@@ -7,4 +7,7 @@ services:
     environment:
       START_EPISODE: 9100
       NB_EPISODES: 1000000
-      DISPLAY_BOARD_IN_TERMINAL: "False"
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "5"
