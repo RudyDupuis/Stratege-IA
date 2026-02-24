@@ -4,4 +4,7 @@ services:
     volumes:
       - ./saved_model:/workspace/saved_model
       - ./h5:/workspace/h5
-    command: python main.py
+    environment:
+      START_EPISODE: 9100
+      NB_EPISODES: 1000000
+      DISPLAY_BOARD_IN_TERMINAL: "False"
