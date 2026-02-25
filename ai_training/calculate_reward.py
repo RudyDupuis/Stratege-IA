@@ -18,12 +18,32 @@ REWARD_FOR_VICTORY = 100
 PENALTY_FOR_PASS_TURN = -5
 REWARD_FOR_PASS_TURN = 10
 REWARD_PER_CAPTURED_PAWN = 0.5
+PENALTY_FOR_TURN_NUMBER = -5
+
+
+def get_penalty_for_turn_number(turn: int):
+    if turn > 5000:
+        print(f"Pénalité pour nombre de tour: {PENALTY_FOR_TURN_NUMBER * 5}")
+        return PENALTY_FOR_TURN_NUMBER * 5
+    if turn > 2000:
+        print(f"Pénalité pour nombre de tour: {PENALTY_FOR_TURN_NUMBER * 3}")
+        return PENALTY_FOR_TURN_NUMBER * 3
+    if turn > 1000:
+        print(f"Pénalité pour nombre de tour: {PENALTY_FOR_TURN_NUMBER * 2}")
+        return PENALTY_FOR_TURN_NUMBER * 2
+    if turn > 500:
+        print(f"Pénalité pour nombre de tour: {PENALTY_FOR_TURN_NUMBER * 1}")
+        return PENALTY_FOR_TURN_NUMBER * 1
+
+    return 0
 
 
 def calculate_reward(choosen_action, game_state, current_player):
     action_info = action_matrice_to_action_infos(choosen_action, game_state)
 
     reward = 0
+
+    reward += get_penalty_for_turn_number(game_state.turn)
 
     if action_info["action"] == Action.KILL:
         reward += REWARD_FOR_KILL
