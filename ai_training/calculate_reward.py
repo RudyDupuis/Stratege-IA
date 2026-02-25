@@ -22,16 +22,16 @@ PENALTY_FOR_TURN_NUMBER = -5
 
 
 def get_penalty_for_turn_number(turn: int):
-    if turn > 5000:
+    if turn > 500:
         print(f"Pénalité pour nombre de tour: {PENALTY_FOR_TURN_NUMBER * 5}")
         return PENALTY_FOR_TURN_NUMBER * 5
-    if turn > 2000:
+    if turn > 200:
         print(f"Pénalité pour nombre de tour: {PENALTY_FOR_TURN_NUMBER * 3}")
         return PENALTY_FOR_TURN_NUMBER * 3
-    if turn > 1000:
+    if turn > 100:
         print(f"Pénalité pour nombre de tour: {PENALTY_FOR_TURN_NUMBER * 2}")
         return PENALTY_FOR_TURN_NUMBER * 2
-    if turn > 500:
+    if turn > 50:
         print(f"Pénalité pour nombre de tour: {PENALTY_FOR_TURN_NUMBER * 1}")
         return PENALTY_FOR_TURN_NUMBER * 1
 

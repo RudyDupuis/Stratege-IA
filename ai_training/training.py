@@ -45,6 +45,9 @@ def train_agents(
             if game_state.winner:
                 done = True
 
+            if game_state.turn > 1000:
+                done = True
+
             next_state = board_infos_data_to_state_matrice(game_state)
             next_possible_actions = actions_to_actions_matrice(
                 game_state, current_player
