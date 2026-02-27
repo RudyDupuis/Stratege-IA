@@ -60,8 +60,6 @@ def train_agents(
             print(f"Épisode {current_episode}")
             display_board(game_state)
 
-        if episode % 100 == 0:
+        if episode % 1000 == 0:
             agent1.model.save(f"h5/{current_episode}_agent1.h5")
             agent2.model.save(f"h5/{current_episode}_agent2.h5")
-
-            agent2.model.export(f"saved_model/{current_episode}_agent2")
